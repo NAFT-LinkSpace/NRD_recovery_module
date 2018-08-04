@@ -47,6 +47,16 @@ void ImuInit() {
   bias = read_from_eeprom<SensorBias>();
 }
 
+void ImuReadAccel(float *ax, float *ay, float *az) {
+  int16_t ax_i, ay_i, az_i;
+
+  accelGyroMag.getAcceleration(&ax_i, &ay_i, &az_i);
+
+  *ax = ax_i * ACCEL_GAIN;
+  *ay = ay_i * ACCEL_GAIN;
+  *az = az_i * ACCEL_GAIN;
+}
+
 void ImuGetMotion9(
   float *ax, float *ay, float *az,
   float *gx, float *gy, float *gz,
@@ -89,8 +99,7 @@ void ImuDetectBias() {
 }
 
 // ジャイロバイアス推定機
-void ImuDetectGyroBias(SensorBias *bias)
-{
+void ImuDetectGyroBias(SensorBias *bias) {
   Serial.print("Detect gyro bias...\r\n");
   Serial.print("Don't move sensor.\r\n");
   Serial.print("Detecting will start after 3 sec.\r\n");

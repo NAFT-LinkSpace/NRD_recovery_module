@@ -4,6 +4,7 @@
 #include <Arduino.h>
 #include <inttypes.h>
 #include <math.h>
+#include <EEPROM.h>
 
 // 標準大気圧[hPa]
 #define STANDARD_ATMOSPHERE (1013.25)
@@ -47,6 +48,35 @@ typedef struct _OutputInfo {
   bool is_1st_servo_open;     // リーフィング1段階目のサーボモータ
   bool is_2nd_servo_open;     // リーフィング2段階目のサーボモータ
 } OutputInfo;
+
+// 磁気，ジャイロのバイアスを格納する構造体
+typedef struct {
+  float gx, gy, gz;
+  float mx, my, mz;
+} SensorBias;
+
+// EEPROMにデータを書き込む関数
+template <typename T>
+void write_to_eeprom(T data) {
+  char *buff = (char*)(&data);
+
+  for (size_t i = 0 ; i < sizeof(T) ; i++ ) {
+    EEPROM.write(i, buff[i]);
+  }
+}
+
+// EEPROMからデータを読み込む関数
+template <typename T>
+T read_from_eeprom() {
+  T data;
+  char *buff = (char*)(&data);
+
+  for (size_t i = 0 ; i < sizeof(T) ; i++ ) {
+    buff[i] = EEPROM.read(i);
+  }
+
+  return data;
+}
 
 // xを[xmin,xmax]から[ymin,ymax]になるように線形補間した後サチる
 int16_t map_constrain(int16_t x, int16_t xmin, int16_t xmax, int16_t ymin, int16_t ymax) {
