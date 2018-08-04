@@ -1,22 +1,22 @@
-
 #include <Servo.h>
 #include "Utility.h"
-
+#include "PinAssign.h"
 
 // リーフィング1段階目のサーボ-Aの角度
-#define ANGLE_1ST_SERVO_A_OPEN    10
-#define ANGLE_1ST_SERVO_A_CLOSE   170
+const int ANGLE_1ST_SERVO_A_OPEN  =  10;
+const int ANGLE_1ST_SERVO_A_CLOSE =  170;
 
 // リーフィング1段階目のサーボ-Bの角度
-#define ANGLE_1ST_SERVO_B_OPEN    10
-#define ANGLE_1St_SERVO_B_CLOSE   170
+const int ANGLE_1ST_SERVO_B_OPEN   = 170;
+const int ANGLE_1St_SERVO_B_CLOSE  = 10;
 
 // リーフィング2段階目のサーボ-Aの角度
-#define ANGLE_2ND_SERVO_A_OPEN    10
-#define ANGLE_2ND_SERVO_A_CLOSE   170
+const int ANGLE_2ND_SERVO_A_OPEN   = 170;
+const int ANGLE_2ND_SERVO_A_CLOSE =  80;
 
 // リーフィング2段階目のサーボ-Bの角度
-#define ANGLE_2ND_SERVO_B_OPEN    10
+const int ANGLE_2ND_SERVO_B_OPEN  =  10;
+const int ANGLE_2ND_SERVO_B_CLOSE  = 170;
 #define ANGLE_2ND_SERVO_B_CLOSE   170
 
 Servo servo_1st_a;  // リーフィング1段階目のサーボ-A

@@ -78,7 +78,7 @@ void loop() {
 
   // 待機
   const uint32_t dt = sensors.time_ms - old_time_ms;
-  delay(WAIT_TIME < dt ? 0 : WAIT_TIME - dt);
+  delay(WAIT_TIME_MS < dt ? 0 : WAIT_TIME_MS - dt);
   old_time_ms = sensors.time_ms;
   //  Serial.println(dt);
 }
