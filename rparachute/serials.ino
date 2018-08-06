@@ -43,7 +43,7 @@ void SerialReadCommand(SensorInfo *sensor) {
   }
 }
 
-enum IM920Result SerialParse(char *buff) {
+enum CommandResult SerialParse(char *buff) {
   if ( strcmp(buff, "TO_SETTING\r\n") == 0 )
     return RESULT_TO_SETTING;
   else if ( strcmp(buff, "TO_READY\r\n") == 0 )

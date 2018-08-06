@@ -36,7 +36,7 @@ void ControlInit() {
   servo_2nd_b.write(ANGLE_2ND_SERVO_B_OPEN);
 }
 
-void ControlLoop(const OutputInfo outputs) {
+void ControlLoop(const OutputInfo &outputs) {
   // リーフィング1段階目のサーボの開閉
   if (outputs.is_1st_servo_open) {
     servo_1st_a.write(ANGLE_1ST_SERVO_A_OPEN);

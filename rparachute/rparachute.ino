@@ -12,8 +12,6 @@ LPF lpf_pres(32);
 uint32_t old_time_ms;
 // シリアル通信でテストする時用のやつ
 DataBuffer my_buff(16);
-// 地上の高度
-float height_at_ground;
 
 void setup() {
   // 初期化されていない場合はLEDを消灯
@@ -42,7 +40,6 @@ void setup() {
 
   // このファイルで定義したグローバル変数の初期化
   old_time_ms = millis();
-  height_at_ground = 0.0;
 
   // 初期化されたことを伝える
   Serial.println("initialized");
@@ -74,7 +71,8 @@ void loop() {
   // 出力
   ControlLoop(outputs);
 
-  Serial.println(to_string(sensors));
+  Serial.print(to_string(sensors));
+  Serial.println(to_string(outputs));
 
   // 待機
   const uint32_t dt = sensors.time_ms - old_time_ms;
@@ -89,7 +87,11 @@ SensorInfo ReadSensors() {
   float ax, ay, az;
   float temp;
 
+  // 現在の状態を取得
   sensors.mode = ModeGetCurrentMode();
+
+  // 地上高度の取得
+  sensors.height_at_ground = ModeGetHeightAtGround();
 
   // 時間[ms]の読み取り
   sensors.time_ms = millis();

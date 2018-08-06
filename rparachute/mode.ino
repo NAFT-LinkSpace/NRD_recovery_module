@@ -5,6 +5,8 @@
 enum RocketMode current_mode;
 // モードクラス
 ModeBase* modes[6];
+// 地上の高度
+float height_at_ground;
 
 void ModeInit() {
   modes[0] = (ModeBase*)new ModeSetting();
@@ -16,9 +18,10 @@ void ModeInit() {
 
   // 初期状態MODE_SETTINGの設定
   ModeChange(MODE_SETTING, millis());
+  height_at_ground = 0.0;
 }
 
-OutputInfo ModeLoop(const SensorInfo sensors) {
+OutputInfo ModeLoop(const SensorInfo &sensors) {
   // MODE_SETTING,MODE_READYでは地上高度を随時更新
   if ( current_mode == MODE_SETTING || current_mode == MODE_READY )
     height_at_ground = sensors.height;
@@ -55,5 +58,9 @@ void ModeChange(enum RocketMode next_mode, uint32_t time_ms) {
 
 enum RocketMode ModeGetCurrentMode(){
   return current_mode;
+}
+
+float ModeGetHeightAtGround(){
+  return height_at_ground;
 }
 

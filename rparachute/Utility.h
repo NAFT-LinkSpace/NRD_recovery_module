@@ -20,7 +20,7 @@ enum RocketMode {
 };
 
 // IM920から送られてくる信号の解析結果
-enum IM920Result {
+enum CommandResult {
   RESULT_TO_SETTING,  // MODE_SETTINGに強制遷移する
   RESULT_TO_READY,    // MODE_READYに強制遷移する
   RESULT_RESET,       // リセットする
@@ -36,7 +36,7 @@ typedef struct _SensorInfo {
   uint32_t time_ms;       // 時間[ms]
   float height_at_ground; // 地上の高度
   enum RocketMode mode;   // 現在の状態
-  enum IM920Result cmd;   // 命令
+  enum CommandResult cmd;   // 命令
 } SensorInfo;
 
 // 出力をまとめるOutputInfo構造体
@@ -170,8 +170,8 @@ String to_string(const enum RocketMode mode) {
   }
 }
 
-// IM920Result列挙型を文字列に変換する関数
-String to_string(const enum IM920Result result) {
+// CommandResult列挙型を文字列に変換する関数
+String to_string(const enum CommandResult result) {
   switch (result) {
     case RESULT_TO_SETTING:
       return "RESULT_TO_SETTING";
