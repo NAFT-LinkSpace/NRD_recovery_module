@@ -34,12 +34,9 @@ typedef struct _SensorInfo {
   float accel_norm;       // 加速度ノルム
   float height;           // 高度[m]
   uint32_t time_ms;       // 時間[ms]
-
   float height_at_ground; // 地上の高度
-  bool command_1st_servo_change;
-  bool command_2nd_servo_change;
-  bool command_to_setting;
-  bool command_to_ready;
+  enum RocketMode mode;   // 現在の状態
+  enum IM920Result cmd;   // 命令
 } SensorInfo;
 
 // 出力をまとめるOutputInfo構造体
@@ -202,6 +199,12 @@ String to_string(const SensorInfo sensors) {
   dataString += String(sensors.height);
   dataString += ",\t";
   dataString += String(sensors.time_ms);
+  dataString += ",\t";
+  dataString += String(sensors.height_at_ground);
+  dataString += ",\t";
+  dataString += to_string(sensors.mode);
+  dataString += ",\t";
+  dataString += to_string(sensors.cmd);
   dataString += ",\t";
 
   return dataString;

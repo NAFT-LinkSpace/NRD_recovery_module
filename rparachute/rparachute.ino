@@ -47,6 +47,7 @@ void setup() {
   // 初期化されたことを伝える
   Serial.println("initialized");
   digitalWrite(PIN_LED, HIGH);
+
 }
 
 void loop() {
@@ -73,8 +74,7 @@ void loop() {
   // 出力
   ControlLoop(outputs);
 
-  // PCからの遠隔操作信号を受信
-  SerialReadCommand(&sensors);
+  Serial.println(to_string(sensors));
 
   // 待機
   const uint32_t dt = sensors.time_ms - old_time_ms;
@@ -88,6 +88,8 @@ SensorInfo ReadSensors() {
   SensorInfo sensors;
   float ax, ay, az;
   float temp;
+
+  sensors.mode = ModeGetCurrentMode();
 
   // 時間[ms]の読み取り
   sensors.time_ms = millis();

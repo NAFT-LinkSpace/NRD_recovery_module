@@ -20,20 +20,19 @@ void ModeInit() {
 
 OutputInfo ModeLoop(const SensorInfo sensors) {
   // MODE_SETTING,MODE_READYでは地上高度を随時更新
-  if ( current_mode == MODE_SETTING
-       || current_mode == MODE_READY )
+  if ( current_mode == MODE_SETTING || current_mode == MODE_READY )
     height_at_ground = sensors.height;
 
   // 出力を決定
   OutputInfo outputs = modes[(int)current_mode]->Control(sensors);
 
   // MODE_SETTINGに移行するように信号が送られてきた場合はnext_modeをそれに
-  if( sensors.command_to_setting ){
+  if ( sensors.cmd == RESULT_TO_SETTING ) {
     outputs.next_mode = MODE_SETTING;
   }
 
   // MODE_READYに移行するように信号が送られてきた場合はnext_modeをそれに
-  if( sensors.command_to_ready ){
+  if ( sensors.cmd == RESULT_TO_READY  ) {
     outputs.next_mode = MODE_READY;
   }
 
@@ -47,10 +46,14 @@ OutputInfo ModeLoop(const SensorInfo sensors) {
 
 void ModeChange(enum RocketMode next_mode, uint32_t time_ms) {
   // 次の状態を初期化する
-  modes[(int)next_mode]->Reset();
-  modes[(int)next_mode]->SetStartedTime(time_ms);
+  modes[(size_t)next_mode]->Reset();
+  modes[(size_t)next_mode]->SetStartedTime(time_ms);
 
   // 現在の状態を新しい物にする
   current_mode = next_mode;
+}
+
+enum RocketMode ModeGetCurrentMode(){
+  return current_mode;
 }
 

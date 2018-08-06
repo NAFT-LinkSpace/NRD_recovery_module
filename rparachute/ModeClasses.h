@@ -37,8 +37,8 @@ class ModeSetting : ModeBase {
       OutputInfo outputs;
       const float delta_time = 1e-3 * (float)(sensors.time_ms - started_time_ms_);
 
-      is_1st_servo_open_ ^= sensors.command_1st_servo_change;
-      is_2nd_servo_open_ ^= sensors.command_2nd_servo_change;
+      is_1st_servo_open_ ^= sensors.cmd == RESULT_CHANGE_1ST;
+      is_2nd_servo_open_ ^= sensors.cmd == RESULT_CHANGE_2ND;
 
       outputs.is_1st_servo_open = is_1st_servo_open_;
       outputs.is_2nd_servo_open = is_2nd_servo_open_;
