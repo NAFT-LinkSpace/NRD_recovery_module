@@ -35,8 +35,9 @@ typedef struct _SensorInfo {
   float height;           // 高度[m]
   uint32_t time_ms;       // 時間[ms]
   float height_at_ground; // 地上の高度
+  bool switch_pushed;     // スイッチが押されていたらtrue
   enum RocketMode mode;   // 現在の状態
-  enum CommandResult cmd;   // 命令
+  enum CommandResult cmd; // 命令
 } SensorInfo;
 
 // 出力をまとめるOutputInfo構造体
@@ -201,6 +202,8 @@ String to_string(const SensorInfo sensors) {
   dataString += String(sensors.time_ms);
   dataString += ",\t";
   dataString += String(sensors.height_at_ground);
+  dataString += ",\t";
+  dataString += String(sensors.switch_pushed);
   dataString += ",\t";
   dataString += to_string(sensors.mode);
   dataString += ",\t";

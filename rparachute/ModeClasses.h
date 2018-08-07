@@ -42,7 +42,13 @@ class ModeSetting : ModeBase {
 
       outputs.is_1st_servo_open = is_1st_servo_open_;
       outputs.is_2nd_servo_open = is_2nd_servo_open_;
-      outputs.next_mode = MODE_SETTING;
+
+      if (sensors.switch_pushed) {
+        outputs.next_mode = MODE_READY;
+      } else {
+        outputs.next_mode = MODE_SETTING;
+      }
+
 
       return outputs;
     }

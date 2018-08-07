@@ -17,7 +17,6 @@ const int ANGLE_2ND_SERVO_A_CLOSE =  80;
 // リーフィング2段階目のサーボ-Bの角度
 const int ANGLE_2ND_SERVO_B_OPEN  =  10;
 const int ANGLE_2ND_SERVO_B_CLOSE  = 170;
-#define ANGLE_2ND_SERVO_B_CLOSE   170
 
 Servo servo_1st_a;  // リーフィング1段階目のサーボ-A
 Servo servo_1st_b;  // リーフィング1段階目のサーボ-B

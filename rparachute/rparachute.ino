@@ -17,6 +17,7 @@ void setup() {
   // 初期化されていない場合はLEDを消灯
   pinMode(PIN_LED, OUTPUT);
   digitalWrite(PIN_LED, LOW);
+  pinMode(PIN_SWITCH, INPUT_PULLUP);
 
   SerialSetup();
   Serial.println("initializing...");
@@ -44,7 +45,6 @@ void setup() {
   // 初期化されたことを伝える
   Serial.println("initialized");
   digitalWrite(PIN_LED, HIGH);
-
 }
 
 void loop() {
@@ -107,6 +107,9 @@ SensorInfo ReadSensors() {
 
   // コマンドの読み取り
   SerialReadCommand(&sensors);
+
+  // スイッチの読み取り(LOWがPUSHED)
+  sensors.switch_pushed = digitalRead(PIN_SWITCH) == 0;
 
   return sensors;
 }

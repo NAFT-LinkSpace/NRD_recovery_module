@@ -15,7 +15,7 @@ const int PIN_2ND_SERVO_A = 3;
 const int PIN_2ND_SERVO_B = 2;
 
 // ONのときMODE_SETTINGからMODE_READYに遷移するスイッチ
-//#define PIN_READY_SW      4
+const int PIN_SWITCH = 12;
 
 
 #endif
