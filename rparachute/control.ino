@@ -28,7 +28,7 @@ void ControlInit() {
   servo_1st_b.attach(PIN_1ST_SERVO_B);
   servo_2nd_a.attach(PIN_2ND_SERVO_A);
   servo_2nd_b.attach(PIN_2ND_SERVO_B);
-  
+
   servo_1st_a.write(ANGLE_1ST_SERVO_A_OPEN);
   servo_1st_b.write(ANGLE_1ST_SERVO_B_OPEN);
   servo_2nd_a.write(ANGLE_2ND_SERVO_A_OPEN);
@@ -53,5 +53,30 @@ void ControlLoop(const OutputInfo &outputs) {
     servo_2nd_a.write(ANGLE_2ND_SERVO_A_CLOSE);
     servo_2nd_b.write(ANGLE_2ND_SERVO_B_CLOSE);
   }
+
+  switch (outputs.next_mode) {
+    case MODE_SETTING:
+      BlinkLed(PIN_LED, 500, 50);
+      break;
+    case MODE_READY:
+      BlinkLed(PIN_LED, 1000, 10);
+      break;
+    case MODE_BURNING:
+      BlinkLed(PIN_LED, 100, 50);
+      break;
+    case MODE_FREEFALL:
+      BlinkLed(PIN_LED, 500, 50);
+      break;
+    case MODE_HALF_OPEN:
+      BlinkLed(PIN_LED, 1000, 50);
+      break;
+    case MODE_FULL_OPEN:
+      BlinkLed(PIN_LED, 3000, 50);
+      break;
+  }
 }
 
+void BlinkLed(int pin, int32_t period_ms, int32_t blink_ratio_percent) {
+  int now_value = (millis() % period_ms) * 100 / period_ms;
+  digitalWrite(pin, now_value < blink_ratio_percent);
+}
