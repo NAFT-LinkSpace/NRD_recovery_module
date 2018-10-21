@@ -165,4 +165,3 @@ SensorInfo ReadSensorsFromSerial() {
   my_buff.Clear();
   return sensors;
 }
-

@@ -1,5 +1,5 @@
 #include "Wire.h"
-#include "MPU9150.h"
+#include <MPU9150.h>
 #include "EEPROM.h"
 #include "Utility.h"
 #include <Adafruit_Sensor.h>
@@ -224,4 +224,3 @@ void ImuDetectMagBias(SensorBias *bias)
   bias->gy = b;
   bias->gz = c;
 }
-

@@ -159,17 +159,21 @@ class ModeFreefall : ModeBase {
 
       outputs.is_1st_servo_open = false;
       outputs.is_2nd_servo_open = false;
+      outputs.next_mode = MODE_FREEFALL;
 
+#ifndef DISABLE_ESTIMATION_TO_HALF
       if (OPEN_TIME_FROM_TOP_REACHED < delta_time - top_time) {
         // 予想最高高度到達時間からの経過時間による遷移
         outputs.next_mode = MODE_HALF_OPEN;
-      } else if (OPEN_TIME_FROM_MODE_CHANGED < delta_time) {
+      }
+#endif
+
+#ifndef DISABLE_TIMER_TO_HALF
+      if (OPEN_TIME_FROM_MODE_CHANGED < delta_time) {
         // 気圧センサの故障を考慮したタイマー条件での遷移
         outputs.next_mode = MODE_HALF_OPEN;
-      } else {
-        // まだ放物線運動をしている
-        outputs.next_mode = MODE_FREEFALL;
       }
+#endif
 
       return outputs;
     }
@@ -196,16 +200,21 @@ class ModeHalfOpen : ModeBase {
 
       outputs.is_1st_servo_open = true;
       outputs.is_2nd_servo_open = false;
+      outputs.next_mode = MODE_HALF_OPEN;
 
+#ifndef DISABLE_HEIGHT_TO_FULL
+      if ( height_from_ground < OPEN_HEIGHT_THRESHOLD ) {
+        // 地上からの高度がOPEN_HEIGHT_THRESHOLD未満になったという条件
+        outputs.next_mode = MODE_FULL_OPEN;
+      }
+#endif
+
+#ifndef DISABLE_TIMER_TO_FULL
       if (OPEN_ONLY_HALF_TIME < delta_time ) {
         // タイマー条件
         outputs.next_mode = MODE_FULL_OPEN;
-      } else if ( height_from_ground < OPEN_HEIGHT_THRESHOLD ) {
-        // 地上からの高度がOPEN_HEIGHT_THRESHOLD未満になったという条件
-        outputs.next_mode = MODE_FULL_OPEN;
-      } else {
-        outputs.next_mode = MODE_HALF_OPEN;
       }
+#endif
 
       return outputs;
     }
@@ -242,4 +251,3 @@ class ModeFullOpen : ModeBase {
 };
 
 #endif
-
