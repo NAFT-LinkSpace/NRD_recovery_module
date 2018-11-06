@@ -19,7 +19,7 @@ enum RocketMode {
   MODE_FULL_OPEN = 5,
 };
 
-// IM920から送られてくる信号の解析結果
+// Serialで送られてくる信号の解析結果
 enum CommandResult {
   RESULT_TO_SETTING,  // MODE_SETTINGに強制遷移する
   RESULT_TO_READY,    // MODE_READYに強制遷移する

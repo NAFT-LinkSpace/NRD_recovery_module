@@ -1,10 +1,11 @@
 #include <Wire.h>
 #include <Servo.h>
 #include "Utility.h"
+#include "DataBuffer.h"
+#include "DataTransfer.h"
 #include "PinAssign.h"
 #include "Parameters.h"
 #include "LPF.h"
-#include "DataBuffer.h"
 
 // 気圧センサの出力値にかけるLPF
 LPF lpf_pres(32);
@@ -12,6 +13,8 @@ LPF lpf_pres(32);
 uint32_t old_time_ms;
 // シリアル通信でテストする時用のやつ
 DataBuffer my_buff(16);
+// データをシリアルで送信するためのもの
+DataTransfer<SensorInfo> data_transfer(0);
 
 void setup() {
   // 初期化されていない場合はLEDを消灯
@@ -71,8 +74,12 @@ void loop() {
   // 出力
   ControlLoop(outputs);
 
+#ifdef DEBUG_MODE
   Serial.print(to_string(sensors));
   Serial.println(to_string(outputs));
+#else
+  data_transfer.Send(Serial, sensors);
+#endif
 
   // 待機
   const uint32_t dt = sensors.time_ms - old_time_ms;
