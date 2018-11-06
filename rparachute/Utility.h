@@ -21,12 +21,12 @@ enum RocketMode {
 
 // Serialで送られてくる信号の解析結果
 enum CommandResult {
-  RESULT_TO_SETTING,  // MODE_SETTINGに強制遷移する
-  RESULT_TO_READY,    // MODE_READYに強制遷移する
-  RESULT_RESET,       // リセットする
-  RESULT_CHANGE_1ST,  // MODE_SETTINGの時第1段階モータの開閉を変更する
-  RESULT_CHANGE_2ND,  // MODE_SETTINGの時第2段階モータの開閉を変更する
-  RESULT_NONE,        // 意味を解析できなかった場合
+  RESULT_TO_SETTING = 0,  // MODE_SETTINGに強制遷移する
+  RESULT_TO_READY = 1,    // MODE_READYに強制遷移する
+  RESULT_RESET = 2,       // リセットする
+  RESULT_CHANGE_1ST = 3,  // MODE_SETTINGの時第1段階モータの開閉を変更する
+  RESULT_CHANGE_2ND = 4,  // MODE_SETTINGの時第2段階モータの開閉を変更する
+  RESULT_NONE = 5,        // 意味を解析できなかった場合
 };
 
 // センサーの値をまとめるSensorInfo構造体
@@ -35,7 +35,6 @@ typedef struct _SensorInfo {
   float accel_norm;       // 加速度ノルム
   float height;           // 高度[m]
   float height_at_ground; // 地上の高度
-  bool switch_pushed;     // スイッチが押されていたらtrue
   enum RocketMode mode;   // 現在の状態
   enum CommandResult cmd; // 命令
 } SensorInfo;
@@ -202,8 +201,6 @@ String to_string(const SensorInfo sensors) {
   dataString += String(sensors.height);
   dataString += ",\t";
   dataString += String(sensors.height_at_ground);
-  dataString += ",\t";
-  dataString += String(sensors.switch_pushed);
   dataString += ",\t";
   dataString += to_string(sensors.mode);
   dataString += ",\t";
