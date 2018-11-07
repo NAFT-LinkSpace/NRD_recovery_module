@@ -77,7 +77,11 @@ void loop() {
   Serial.print(to_string(sensors));
   Serial.println(to_string(outputs));
 #else
-  data_transfer.Send(Serial, sensors);
+  static uint32_t last_send_time_ms = millis();
+  if ( sensors.time_ms - last_send_time_ms > DATA_SEND_INTERVAL_MS ) {
+    data_transfer.Send(Serial, sensors);
+    last_send_time_ms = sensors.time_ms;
+  }
 #endif
 
   // 待機

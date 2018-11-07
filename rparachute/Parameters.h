@@ -26,6 +26,9 @@ const float OPEN_HEIGHT_THRESHOLD = (130.0);
 // 1ループの待機時間[ms]
 const uint32_t WAIT_TIME_MS = (10);
 
+// シリアルでデータを送信する間隔[ms]
+const uint32_t DATA_SEND_INTERVAL_MS = 50;
+
 // バッテリー試験をする際にはこれをコメントイン
 //#define BATTERY_TEST
 
