@@ -220,7 +220,7 @@ void ImuDetectMagBias(SensorBias *bias)
   Serial.print(r);
   Serial.print("\r\n");
 
-  bias->gx = a;
-  bias->gy = b;
-  bias->gz = c;
+  bias->mx = a;
+  bias->my = b;
+  bias->mz = c;
 }
