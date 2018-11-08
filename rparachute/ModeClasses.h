@@ -45,6 +45,13 @@ class ModeSetting : ModeBase {
 
       outputs.next_mode = MODE_SETTING;
 
+#ifdef ENABLE_TO_READY_BY_TIME
+      //      Serial.println(del/ta_time);
+      if (delta_time > TO_READY_TIME) {
+        outputs.next_mode = MODE_READY;
+      }
+#endif
+
       return outputs;
     }
 

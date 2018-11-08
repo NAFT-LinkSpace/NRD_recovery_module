@@ -1,6 +1,11 @@
 #ifndef PARAMETERS_HEADER_FILE
 #define PARAMETERS_HEADER_FILE
 
+// 時間でMODE_SETTINGからMODE_READYに遷移したい場合は
+// TO_READY_TIMEをコメントインするとTO_READY_TIME[s]後に遷移する
+#define ENABLE_TO_READY_BY_TIME
+const float TO_READY_TIME = 15*60;
+
 // 点火検知は加速度のノルムが
 // ACCEL_IGNITION_THRESHOLD[g]を超えた状態を
 // TIME_IGNITION_THRESHOLD[s]以上の時間継続した場合，点火と判断する
