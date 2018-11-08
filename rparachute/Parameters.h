@@ -36,11 +36,11 @@ const uint32_t WAIT_TIME_MS = (10);
 //#define DEBUG_MODE
 
 // コメントインで推定によるHALF_MODEへの遷移をOFFにする
-#define DISABLE_ESTIMATION_TO_HALF
+//#define DISABLE_ESTIMATION_TO_HALF
 // コメントインでタイマーによるHALF_MODEへの遷移をOFFにする
 //#define DISABLE_TIMER_TO_HALF
 // コメントインで高度によるFULL_MODEへの遷移をOFFにする
-#define DISABLE_HEIGHT_TO_FULL
+//#define DISABLE_HEIGHT_TO_FULL
 // コメントインでタイマーによるHALF_MODEへの遷移をOFFにする
 //#define DISABLE_TIMER_TO_FULL
 
