@@ -4,7 +4,7 @@
 
 // リーフィング1段階目のサーボ-Aの角度
 const int ANGLE_1ST_SERVO_A_OPEN  =  180;
-const int ANGLE_1ST_SERVO_A_CLOSE =  90;
+const int ANGLE_1ST_SERVO_A_CLOSE =  100;
 
 // リーフィング1段階目のサーボ-Bの角度
 const int ANGLE_1ST_SERVO_B_OPEN   = 0;
