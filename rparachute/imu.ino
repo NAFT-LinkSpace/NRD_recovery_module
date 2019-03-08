@@ -6,7 +6,7 @@
 #include <Adafruit_BMP280.h>
 
 const uint8_t MPU9250_DEVICE_ID = 0x39;
-
+//
 const float ACCEL_GAIN = 16.0 / (float)(1L << 15);
 const float GYRO_GAIN = 500.0 / (float)(1L << 15);
 const float MAG_GAIN = 0.48 / (float)(1L << 14);
