@@ -7,12 +7,12 @@
 const int PIN_LED = 13;
 
 // リーフィング1段階目のサーボピン
-const int PIN_1ST_SERVO_A = 2;
-const int PIN_1ST_SERVO_B = 3;
+const int PIN_1ST_SERVO_A = 5;
+const int PIN_1ST_SERVO_B = 6;
 
 // リーフィング2段階目のサーボピン
-const int PIN_2ND_SERVO_A = 4;
-const int PIN_2ND_SERVO_B = 5;
+const int PIN_2ND_SERVO_A = 9;
+const int PIN_2ND_SERVO_B = 10;
 
 #endif
 
