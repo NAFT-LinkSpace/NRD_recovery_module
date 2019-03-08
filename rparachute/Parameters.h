@@ -51,5 +51,8 @@ const uint32_t DATA_SEND_INTERVAL_MS = 50;
 //#define DISABLE_HEIGHT_TO_FULL
 // コメントインでタイマーによるHALF_MODEへの遷移をOFFにする
 //#define DISABLE_TIMER_TO_FULL
+const float ACCEL_BIAS_X = 0.0;
+const float ACCEL_BIAS_Y = 0.0;
+const float ACCEL_BIAS_Z = 0.0;
 
 #endif
