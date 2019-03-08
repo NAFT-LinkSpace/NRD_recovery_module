@@ -3,7 +3,7 @@
 
 // 時間でMODE_SETTINGからMODE_READYに遷移したい場合は
 // TO_READY_TIMEをコメントインするとTO_READY_TIME[s]後に遷移する
-#define ENABLE_TO_READY_BY_TIME
+// #define ENABLE_TO_READY_BY_TIME
 const float TO_READY_TIME = 15*60;
 
 // 点火検知は加速度のノルムが
@@ -13,13 +13,13 @@ const float IGNITION_THRESHOLD_ACCEL = (3.0);
 const float IGNITION_THRESHOLD_TIME = (0.1);
 
 // エンジン燃焼時間
-const float BURNING_TIME = (3.0);
+const float BURNING_TIME = (5.6);
 
 // パラシュートは，
 // 最高高度に達した時間からOPEN_TIME_FROM_TOP_REACHED[s] 後，
 // もしくは状態が遷移してから OPEN_TIME_FROM_MODE_CHANGED[s] 後に開傘する
 const float OPEN_TIME_FROM_TOP_REACHED = (0.5);
-const float OPEN_TIME_FROM_MODE_CHANGED = (11.0);
+const float OPEN_TIME_FROM_MODE_CHANGED = (11.9);
 
 // パラシュートを絞った状態で降下する最長時間[s]
 const float OPEN_ONLY_HALF_TIME = (50.0);
