@@ -35,6 +35,8 @@ typedef struct _SensorInfo {
   float accel_norm;       // 加速度ノルム
   float height;           // 高度[m]
   float height_at_ground; // 地上の高度
+  float battery_servo;    // サーボ用電源電圧
+  float battery_arduino;  // マイコン用電源電圧
   enum RocketMode mode;   // 現在の状態
   enum CommandResult cmd; // 命令
 } SensorInfo;
