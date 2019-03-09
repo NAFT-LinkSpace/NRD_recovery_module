@@ -41,7 +41,7 @@ const uint32_t DATA_SEND_INTERVAL_MS = 50;
 // #define SERIAL_TEST/
 
 // センサーデータなどをSerialに送信する場合はこれをコメントイン
-// #define DEBUG_MODE
+#define DEBUG_MODE
 
 // コメントインで推定によるHALF_MODEへの遷移をOFFにする
 // #define DISABLE_ESTIMATION_TO_HALF
@@ -54,7 +54,7 @@ const uint32_t DATA_SEND_INTERVAL_MS = 50;
 
 const float ACCEL_BIAS_X = 0.0;
 const float ACCEL_BIAS_Y = 0.0;
-const float ACCEL_BIAS_Z = 0.0;
+const float ACCEL_BIAS_Z = 0.37;
 
 //analogReadの返値にかけると電圧が出る係数　抵抗の誤差でちょっと変わる
 const float BATTERY_ARDUINO_COEFFICIENT = 9.7215E-3;

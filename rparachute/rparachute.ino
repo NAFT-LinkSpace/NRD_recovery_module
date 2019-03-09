@@ -108,6 +108,11 @@ SensorInfo ReadSensors() {
 
   // 加速度[g]の読み取り
   ImuReadAccel(&ax, &ay, &az);
+
+  ax -= ACCEL_BIAS_X;
+  ay -= ACCEL_BIAS_Y;
+  az -= ACCEL_BIAS_Z;
+
   sensors.accel_norm = sqrt(ax * ax + ay * ay + az * az);
 
   // 気圧[hPa]の読み取り
