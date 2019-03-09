@@ -15,7 +15,6 @@ const int PIN_2ND_SERVO_A = 9;
 const int PIN_2ND_SERVO_B = 10;
 
 //バッテリー電圧測定用のピン
-
 const int PIN_BATTERY_ARDUINO = 7;
 const int PIN_BATTERY_SERVO = 6;
 
