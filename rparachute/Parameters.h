@@ -38,19 +38,19 @@ const uint32_t DATA_SEND_INTERVAL_MS = 50;
 //#define BATTERY_TEST
 
 // シリアル通信で挙動をテストする場合はこれをコメントイン
-//#define SERIAL_TEST/
+// #define SERIAL_TEST/
 
 // センサーデータなどをSerialに送信する場合はこれをコメントイン
-//#define DEBUG_MODE
+// #define DEBUG_MODE
 
 // コメントインで推定によるHALF_MODEへの遷移をOFFにする
-//#define DISABLE_ESTIMATION_TO_HALF
+// #define DISABLE_ESTIMATION_TO_HALF
 // コメントインでタイマーによるHALF_MODEへの遷移をOFFにする
-//#define DISABLE_TIMER_TO_HALF
+// #define DISABLE_TIMER_TO_HALF
 // コメントインで高度によるFULL_MODEへの遷移をOFFにする
-//#define DISABLE_HEIGHT_TO_FULL
+// #define DISABLE_HEIGHT_TO_FULL
 // コメントインでタイマーによるHALF_MODEへの遷移をOFFにする
-//#define DISABLE_TIMER_TO_FULL
+// #define DISABLE_TIMER_TO_FULL
 
 const float ACCEL_BIAS_X = 0.0;
 const float ACCEL_BIAS_Y = 0.0;
