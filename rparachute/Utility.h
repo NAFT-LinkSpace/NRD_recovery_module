@@ -206,6 +206,10 @@ String to_string(const SensorInfo sensors) {
   dataString += ",\t";
   dataString += to_string(sensors.mode);
   dataString += ",\t";
+  dataString += String(sensors.battery_arduino);
+  dataString += ",\t";
+  dataString += String(sensors.battery_servo);
+  dataString += ",\t";
   dataString += to_string(sensors.cmd);
   dataString += ",\t";
 
