@@ -117,7 +117,7 @@ SensorInfo ReadSensors() {
 
   // バッテリー電圧の測定
   sensors.battery_arduino = (float)analogRead(PIN_BATTERY_ARDUINO)*BATTERY_ARDUINO_COEFFICIENT;
-  sensors.battery_servo = (float)analogRead()*BATTERY_SERVO_COEFFICIENT;
+  sensors.battery_servo = (float)analogRead(PIN_BATTERY_SERVO)*BATTERY_SERVO_COEFFICIENT;
 
   // コマンドの読み取り
   SerialReadCommand(&sensors);
