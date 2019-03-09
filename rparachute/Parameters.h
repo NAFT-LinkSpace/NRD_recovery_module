@@ -51,8 +51,13 @@ const uint32_t DATA_SEND_INTERVAL_MS = 50;
 //#define DISABLE_HEIGHT_TO_FULL
 // コメントインでタイマーによるHALF_MODEへの遷移をOFFにする
 //#define DISABLE_TIMER_TO_FULL
+
 const float ACCEL_BIAS_X = 0.0;
 const float ACCEL_BIAS_Y = 0.0;
 const float ACCEL_BIAS_Z = 0.0;
+
+//analogReadの返値にかけると電圧が出る係数　抵抗の誤差でちょっと変わる
+const float BATTERY_ARDUINO_COEFFICIENT = 9.7215E-3;
+const float BATTERY_SERVO_COEFFICIENT = 9.8092E-3;
 
 #endif
