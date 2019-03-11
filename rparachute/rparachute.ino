@@ -77,6 +77,7 @@ void loop() {
   Serial.print(to_string(sensors));
   Serial.println(to_string(outputs));
 #else
+  // 別のロガーにデータを送る
   static uint32_t last_send_time_ms = millis();
   if ( sensors.time_ms - last_send_time_ms > DATA_SEND_INTERVAL_MS ) {
     data_transfer.Send(Serial, sensors);
@@ -121,8 +122,8 @@ SensorInfo ReadSensors() {
   sensors.height = pressureToAltitudeMeters(temp, STANDARD_ATMOSPHERE);
 
   // バッテリー電圧の測定
-  sensors.battery_arduino = (float)analogRead(PIN_BATTERY_ARDUINO)*BATTERY_ARDUINO_COEFFICIENT;
-  sensors.battery_servo = (float)analogRead(PIN_BATTERY_SERVO)*BATTERY_SERVO_COEFFICIENT;
+  sensors.battery_arduino = (float)analogRead(PIN_BATTERY_ARDUINO) * BATTERY_ARDUINO_COEFFICIENT;
+  sensors.battery_servo = (float)analogRead(PIN_BATTERY_SERVO) * BATTERY_SERVO_COEFFICIENT;
 
   // コマンドの読み取り
   SerialReadCommand(&sensors);

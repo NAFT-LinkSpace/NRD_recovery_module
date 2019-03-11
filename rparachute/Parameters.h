@@ -22,11 +22,11 @@ const float OPEN_TIME_FROM_TOP_REACHED = (0.5);
 const float OPEN_TIME_FROM_MODE_CHANGED = (11.9);
 
 // パラシュートを絞った状態で降下する最長時間[s]
-const float OPEN_ONLY_HALF_TIME = (50.0);
+const float OPEN_ONLY_HALF_TIME = (72.5);
 
 // 地上からの高度がOPEN_HEIGHT_THRESHOLD[m]未満になった場合，
 // MODE_HALF_OPENからMODE_FULL_OPENに遷移する
-const float OPEN_HEIGHT_THRESHOLD = (90-17.5);
+const float OPEN_HEIGHT_THRESHOLD = (100);
 
 // 1ループの待機時間[ms]
 const uint32_t WAIT_TIME_MS = (10);
@@ -52,6 +52,7 @@ const uint32_t DATA_SEND_INTERVAL_MS = 50;
 // コメントインでタイマーによるHALF_MODEへの遷移をOFFにする
 // #define DISABLE_TIMER_TO_FULL
 
+// 加速度センサーのバイアス
 const float ACCEL_BIAS_X = 0.0;
 const float ACCEL_BIAS_Y = 0.0;
 const float ACCEL_BIAS_Z = 0.37;
