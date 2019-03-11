@@ -26,7 +26,7 @@ const float OPEN_ONLY_HALF_TIME = (50.0);
 
 // 地上からの高度がOPEN_HEIGHT_THRESHOLD[m]未満になった場合，
 // MODE_HALF_OPENからMODE_FULL_OPENに遷移する
-const float OPEN_HEIGHT_THRESHOLD = (130.0);
+const float OPEN_HEIGHT_THRESHOLD = (90-17.5);
 
 // 1ループの待機時間[ms]
 const uint32_t WAIT_TIME_MS = (10);
@@ -41,7 +41,7 @@ const uint32_t DATA_SEND_INTERVAL_MS = 50;
 // #define SERIAL_TEST/
 
 // センサーデータなどをSerialに送信する場合はこれをコメントイン
-#define DEBUG_MODE
+//#define DEBUG_MODE
 
 // コメントインで推定によるHALF_MODEへの遷移をOFFにする
 // #define DISABLE_ESTIMATION_TO_HALF
