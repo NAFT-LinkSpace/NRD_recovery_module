@@ -55,7 +55,7 @@ class ModeSetting : ModeBase {
       return outputs;
     }
 
-    void Reset() {
+    void Reset() override {
       is_1st_servo_open_ = true;
       is_2nd_servo_open_ = true;
     }
@@ -104,7 +104,7 @@ class ModeReady : ModeBase {
       return outputs;
     }
 
-    void Reset() {
+    void Reset() override {
       is_high_accel_before_ = false;
     }
   private:
@@ -137,7 +137,7 @@ class ModeBurning : ModeBase {
       return outputs;
     }
 
-    void Reset() {
+    void Reset() override {
 
     }
   private:
@@ -180,7 +180,7 @@ class ModeFreefall : ModeBase {
       return outputs;
     }
 
-    void Reset() {
+    void Reset() override {
       top_detector_.Reset();
     }
 
@@ -221,7 +221,7 @@ class ModeHalfOpen : ModeBase {
       return outputs;
     }
 
-    void Reset() {
+    void Reset() override {
 
     }
   private:
@@ -245,7 +245,7 @@ class ModeFullOpen : ModeBase {
       return outputs;
     }
 
-    void Reset() {
+    void Reset() override {
 
     }
   private:
