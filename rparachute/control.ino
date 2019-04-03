@@ -8,15 +8,15 @@ const int ANGLE_1ST_SERVO_A_CLOSE =  100;
 
 // リーフィング1段階目のサーボ-Bの角度
 const int ANGLE_1ST_SERVO_B_OPEN   = 0;
-const int ANGLE_1St_SERVO_B_CLOSE  = 90;
+const int ANGLE_1St_SERVO_B_CLOSE  = 70;
 
 // リーフィング2段階目のサーボ-Aの角度
 const int ANGLE_2ND_SERVO_A_OPEN   = 30;
-const int ANGLE_2ND_SERVO_A_CLOSE =  75;
+const int ANGLE_2ND_SERVO_A_CLOSE =  70;
 
 // リーフィング2段階目のサーボ-Bの角度
 const int ANGLE_2ND_SERVO_B_OPEN  =  30;
-const int ANGLE_2ND_SERVO_B_CLOSE  = 75;
+const int ANGLE_2ND_SERVO_B_CLOSE  = 70;
 
 Servo servo_1st_a;  // リーフィング1段階目のサーボ-A
 Servo servo_1st_b;  // リーフィング1段階目のサーボ-B
